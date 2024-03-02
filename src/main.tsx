@@ -1,10 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import '~styles/theme.scss';
+import 'bootstrap';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+import React from 'react';
+
+import { createRoot } from 'react-dom/client';
+import AppContainer from '~components/container/app';
+import api from '~services/api';
+
+api.init();
+
+const rootEl = document.querySelector('main');
+if (!rootEl) {
+  throw new Error('Root app not found');
+}
+
+const root = createRoot(rootEl);
+root.render(
   <React.StrictMode>
-    <App />
+    <AppContainer />
   </React.StrictMode>,
-)
+);
