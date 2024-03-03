@@ -2,11 +2,12 @@ import { useState } from 'react';
 
 import { useEffectOnce } from '~hooks/effect';
 import useLoading from '~hooks/loading';
-import { AuthProviderProps } from '~plugins/auth/provider/_.type';
 import { useAppDispatch } from '~plugins/store';
 import { authSliceActions } from '~plugins/store/auth';
 import { userApi } from '~services/api';
 import { getErrorMessage } from '~utils/error';
+
+import { AuthProviderProps } from './_.type';
 
 export default function AuthProvider({ children }: Readonly<AuthProviderProps>) {
   const dispatch = useAppDispatch();

@@ -1,7 +1,7 @@
 import { FormEventHandler, useMemo } from 'react';
 
 import classNames from 'classnames';
-import { FieldPathValue, useForm, Validate } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import useLoading from '~hooks/loading';
 import { useAppDispatch } from '~plugins/store';
@@ -9,17 +9,9 @@ import { authSliceActions } from '~plugins/store/auth';
 import { userApi } from '~services/api';
 import { getErrorMessage } from '~utils/error';
 
-import { AuthSignUpFormValues } from './_.type';
+import { AuthSignInFormValues } from './_.type';
 
-const validateRepeatPassword: Validate<FieldPathValue<AuthSignUpFormValues, 'repeatPassword'>, AuthSignUpFormValues> = (value, formValues) => {
-  if (formValues.password !== value) {
-    return 'Re-entered password does not match';
-  }
-
-  return true;
-};
-
-export default function AuthSignUpForm() {
+export default function AuthSignIn() {
   const dispatch = useAppDispatch();
 
   const {
@@ -27,7 +19,7 @@ export default function AuthSignUpForm() {
     handleSubmit,
     setError,
     formState: { errors },
-  } = useForm<AuthSignUpFormValues>();
+  } = useForm<AuthSignInFormValues>();
 
   const loading = useLoading();
 
@@ -37,7 +29,7 @@ export default function AuthSignUpForm() {
         try {
           loading.show();
 
-          const user = await userApi.createUser(formValues);
+          const user = await userApi.signIn(formValues);
           dispatch(authSliceActions.setUser(user));
         } catch (error) {
           setError('root', {
@@ -75,26 +67,6 @@ export default function AuthSignUpForm() {
         {errors.userId && <div className="invalid-feedback">{errors.userId.message}</div>}
       </div>
       <div className="my-3">
-        <label htmlFor="input-name" className="form-label">
-          Name
-        </label>
-        <input
-          type="text"
-          className={classNames('form-control', {
-            'is-invalid': errors.name,
-          })}
-          id="input-name"
-          autoComplete="name"
-          {...register('name', {
-            required: {
-              value: true,
-              message: 'Please enter name',
-            },
-          })}
-        />
-        {errors.name && <div className="invalid-feedback">{errors.name.message}</div>}
-      </div>
-      <div className="my-3">
         <label htmlFor="input-password" className="form-label">
           Password
         </label>
@@ -104,7 +76,7 @@ export default function AuthSignUpForm() {
             'is-invalid': errors.password,
           })}
           id="input-password"
-          autoComplete="new-password"
+          autoComplete="current-password"
           {...register('password', {
             required: {
               value: true,
@@ -114,34 +86,13 @@ export default function AuthSignUpForm() {
         />
         {errors.password && <div className="invalid-feedback">{errors.password.message}</div>}
       </div>
-      <div className="my-3">
-        <label htmlFor="input-repeat-password" className="form-label">
-          Re-enter password
-        </label>
-        <input
-          type="password"
-          className={classNames('form-control', {
-            'is-invalid': errors.repeatPassword,
-          })}
-          id="input-repeat-password"
-          autoComplete="off"
-          {...register('repeatPassword', {
-            required: {
-              value: true,
-              message: 'Please re-enter password',
-            },
-            validate: validateRepeatPassword,
-          })}
-        />
-        {errors.repeatPassword && <div className="invalid-feedback">{errors.repeatPassword.message}</div>}
-      </div>
 
       <div className="mt-3 mb-2 d-flex align-items-center justify-content-end gap-2">
-        <Link to="/" className="btn btn-outline-primary">
-          Back to Sign In
+        <Link to="/sign-up" className="btn btn-outline-primary">
+          Sign Up
         </Link>
         <button type="submit" className="btn btn-primary">
-          Sign Up
+          Sign In
         </button>
       </div>
     </form>

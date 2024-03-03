@@ -2,24 +2,22 @@ import { FormEventHandler, useMemo } from 'react';
 
 import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useLoading from '~hooks/loading';
-import { useAppDispatch } from '~plugins/store';
-import { authSliceActions } from '~plugins/store/auth';
-import { userApi } from '~services/api';
+import { questionApi } from '~services/api';
 import { getErrorMessage } from '~utils/error';
 
-import { AuthSignInFormValues } from './_.type';
+import { PollCreateFormValues, PollCreateProps } from './_.type';
 
-export default function AuthSignInForm() {
-  const dispatch = useAppDispatch();
+export default function PollCreate({ userId }: Readonly<PollCreateProps>) {
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     setError,
     formState: { errors },
-  } = useForm<AuthSignInFormValues>();
+  } = useForm<PollCreateFormValues>();
 
   const loading = useLoading();
 
@@ -29,8 +27,12 @@ export default function AuthSignInForm() {
         try {
           loading.show();
 
-          const user = await userApi.signIn(formValues);
-          dispatch(authSliceActions.setUser(user));
+          await questionApi.createQuestion({
+            ...formValues,
+            author: userId,
+          });
+
+          navigate('/home');
         } catch (error) {
           setError('root', {
             message: getErrorMessage(error),
@@ -39,7 +41,7 @@ export default function AuthSignInForm() {
           loading.hide();
         }
       }),
-    [dispatch, handleSubmit, loading, setError],
+    [handleSubmit, loading, navigate, setError, userId],
   );
 
   return (
@@ -48,51 +50,48 @@ export default function AuthSignInForm() {
 
       <div className="my-3">
         <label htmlFor="input-user" className="form-label">
-          User
+          First option
         </label>
         <input
           type="text"
           className={classNames('form-control', {
-            'is-invalid': errors.userId,
+            'is-invalid': errors.optionOneText,
           })}
-          id="input-user"
-          autoComplete="username"
-          {...register('userId', {
+          id="input-option-one"
+          autoComplete="off"
+          {...register('optionOneText', {
             required: {
               value: true,
-              message: 'Please enter user',
+              message: 'Please enter first option',
             },
           })}
         />
-        {errors.userId && <div className="invalid-feedback">{errors.userId.message}</div>}
+        {errors.optionOneText && <div className="invalid-feedback">{errors.optionOneText.message}</div>}
       </div>
       <div className="my-3">
-        <label htmlFor="input-password" className="form-label">
-          Password
+        <label htmlFor="input-user" className="form-label">
+          Second option
         </label>
         <input
-          type="password"
+          type="text"
           className={classNames('form-control', {
-            'is-invalid': errors.password,
+            'is-invalid': errors.optionTwoText,
           })}
-          id="input-password"
-          autoComplete="current-password"
-          {...register('password', {
+          id="input-option-one"
+          autoComplete="off"
+          {...register('optionTwoText', {
             required: {
               value: true,
-              message: 'Please enter password',
+              message: 'Please enter second option',
             },
           })}
         />
-        {errors.password && <div className="invalid-feedback">{errors.password.message}</div>}
+        {errors.optionTwoText && <div className="invalid-feedback">{errors.optionTwoText.message}</div>}
       </div>
 
       <div className="mt-3 mb-2 d-flex align-items-center justify-content-end gap-2">
-        <Link to="/sign-up" className="btn btn-outline-primary">
-          Sign Up
-        </Link>
         <button type="submit" className="btn btn-primary">
-          Sign In
+          Create
         </button>
       </div>
     </form>
