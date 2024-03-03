@@ -6,19 +6,19 @@ const authenticatedRoute: RouteObject = {
   children: [
     {
       index: true,
-      path: '/home',
+      path: 'home',
       lazy: async () => (await import('~components/page/app/dashboard')).default,
     },
     {
-      path: '/leaderboard',
+      path: 'leaderboard',
       lazy: async () => (await import('~components/page/app/leaderboard')).default,
     },
     {
-      path: '/add',
+      path: 'add',
       lazy: async () => (await import('~components/page/app/add')).default,
     },
     {
-      path: '/questions/:questionId',
+      path: 'questions/:questionId',
       lazy: async () => (await import('~components/page/app/questions')).default,
     },
   ],

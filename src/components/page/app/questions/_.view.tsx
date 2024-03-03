@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Poll, { PollProps } from '~components/feature/app/poll';
 import { PollVoteItemProps } from '~components/feature/app/poll-vote-item';
 import { useEffectOnce } from '~hooks/effect';
@@ -13,6 +13,8 @@ import { QuestionsPageParams, VoteOptionParams } from './_.type';
 
 export default function QuestionsPage() {
   const { questionId } = useParams<QuestionsPageParams>();
+  const navigate = useNavigate();
+
   const loading = useLoading();
 
   const authUser = useAppSelector((state) => state.auth.user);
@@ -56,7 +58,15 @@ export default function QuestionsPage() {
       try {
         loading.show();
 
-        const question = await questionApi.getQuestion(questionId);
+        const question = await questionApi.getQuestion(questionId).catch(() => {
+          navigate('/error/404', {
+            replace: true,
+          });
+        });
+
+        if (!question) {
+          return;
+        }
 
         const [authorUser, { user, answer, userCount }] = await Promise.all([
           userApi.getUser(question.author),

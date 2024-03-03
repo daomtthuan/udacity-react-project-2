@@ -1,14 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { AuthLayout } from '~plugins/auth';
+import ErrorBoundary from '~components/page/error/boundary';
 
 import authenticatedRoute from './_authenticated';
+import errorRoute from './_error';
 import guestRoute from './_guest';
 
 const router = createBrowserRouter([
   {
-    Component: AuthLayout,
+    ErrorBoundary,
 
-    children: [guestRoute, authenticatedRoute],
+    children: [errorRoute, guestRoute, authenticatedRoute],
   },
 ]);
 

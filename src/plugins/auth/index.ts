@@ -1,4 +1,4 @@
-import AuthLayout from './layout';
+import AuthContainer from './container';
 import AuthProvider from './provider';
 
-export { AuthLayout, AuthProvider };
+export { AuthContainer as AuthLayout, AuthProvider };

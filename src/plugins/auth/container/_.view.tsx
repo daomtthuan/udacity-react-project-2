@@ -1,5 +1,7 @@
-import { Location, Navigate, Outlet, useLocation } from 'react-router-dom';
+import { Location, Navigate, useLocation } from 'react-router-dom';
 import { useAppSelector } from '~plugins/store';
+
+import { AuthContainerProps } from './_.type';
 
 const pathConfig = {
   signIn: '/',
@@ -8,7 +10,7 @@ const pathConfig = {
   guest: ['/', '/sign-up'],
 };
 
-export default function AuthLayout() {
+export default function AuthContainer({ children }: Readonly<AuthContainerProps>) {
   const location: Location<string | null> = useLocation();
 
   const authUser = useAppSelector((state) => state.auth.user);
@@ -20,7 +22,7 @@ export default function AuthLayout() {
       return <Navigate to={pathConfig.signIn} state={location.pathname} />;
     }
 
-    return <Outlet />;
+    return children;
   }
 
   // Authenticated
@@ -35,6 +37,6 @@ export default function AuthLayout() {
       return <Navigate to={pathConfig.home} state={null} />;
     }
 
-    return <Outlet />;
+    return children;
   }
 }

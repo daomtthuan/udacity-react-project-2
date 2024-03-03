@@ -9,7 +9,7 @@ const guestRoute: RouteObject = {
       lazy: async () => (await import('~components/page/guest/sign-in')).default,
     },
     {
-      path: '/sign-up',
+      path: 'sign-up',
       lazy: async () => (await import('~components/page/guest/sign-up')).default,
     },
   ],

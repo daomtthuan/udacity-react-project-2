@@ -2,6 +2,7 @@ import { MouseEventHandler, useCallback } from 'react';
 
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import useLoading from '~hooks/loading';
+import AuthContainer from '~plugins/auth/container';
 import { useAppDispatch, useAppSelector } from '~plugins/store';
 import { authSliceActions } from '~plugins/store/auth';
 import { userApi } from '~services/api';
@@ -33,7 +34,7 @@ export default function BoardLayout() {
   }, [dispatch, loading]);
 
   return (
-    <>
+    <AuthContainer>
       <nav className="navbar navbar-expand-md bg-primary shadow sticky-top" data-bs-theme="dark">
         <div className="container-fluid px-md-5">
           <h1 className="navbar-brand fw-bold mb-0">
@@ -102,6 +103,6 @@ export default function BoardLayout() {
       </nav>
 
       <Outlet />
-    </>
+    </AuthContainer>
   );
 }
