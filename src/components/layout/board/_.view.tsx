@@ -1,8 +1,11 @@
 import { MouseEventHandler, useCallback } from 'react';
 
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import useLoading from '~hooks/loading';
 import { useAppDispatch, useAppSelector } from '~plugins/store';
 import { authSliceActions } from '~plugins/store/auth';
+import { userApi } from '~services/api';
+import { getErrorMessage } from '~utils/error';
 
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,11 +15,22 @@ import styles from './_.module.scss';
 export default function BoardLayout() {
   const dispatch = useAppDispatch();
 
+  const loading = useLoading();
+
   const user = useAppSelector((state) => state.auth.user);
 
-  const onClickSignOut = useCallback<MouseEventHandler<HTMLAnchorElement>>(() => {
-    dispatch(authSliceActions.setUser(null));
-  }, [dispatch]);
+  const onClickSignOut = useCallback<MouseEventHandler<HTMLAnchorElement>>(async () => {
+    try {
+      loading.show();
+
+      await userApi.signOut();
+      dispatch(authSliceActions.setUser(null));
+    } catch (error) {
+      alert(getErrorMessage(error));
+    } finally {
+      loading.hide();
+    }
+  }, [dispatch, loading]);
 
   return (
     <>

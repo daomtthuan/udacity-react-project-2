@@ -1,8 +1,14 @@
 import { Location, Navigate, Outlet, useLocation } from 'react-router-dom';
-import authConfig from '~plugins/auth';
 import { useAppSelector } from '~plugins/store';
 
-export default function AuthContainer() {
+const pathConfig = {
+  signIn: '/',
+  home: '/home',
+
+  guest: ['/', '/sign-up'],
+};
+
+export default function AuthLayout() {
   const location: Location<string | null> = useLocation();
 
   const user = useAppSelector((state) => state.auth.user);
@@ -10,8 +16,8 @@ export default function AuthContainer() {
   // Not authenticated
   if (!user) {
     // Location is not guest routes
-    if (!authConfig.guestPaths.includes(location.pathname)) {
-      return <Navigate to={authConfig.signIn} state={location.pathname} />;
+    if (!pathConfig.guest.includes(location.pathname)) {
+      return <Navigate to={pathConfig.signIn} state={location.pathname} />;
     }
 
     return <Outlet />;
@@ -25,8 +31,8 @@ export default function AuthContainer() {
     }
 
     // Location is guest routes
-    if (authConfig.guestPaths.includes(location.pathname)) {
-      return <Navigate to={authConfig.home} state={null} />;
+    if (pathConfig.guest.includes(location.pathname)) {
+      return <Navigate to={pathConfig.home} state={null} />;
     }
 
     return <Outlet />;

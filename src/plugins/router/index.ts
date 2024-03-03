@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
-import AuthContainer from '~components/container/auth';
+import { AuthLayout } from '~plugins/auth';
 
 import authenticatedRoute from './_authenticated';
 import guestRoute from './_guest';
 
 const router = createBrowserRouter([
   {
-    Component: AuthContainer,
+    Component: AuthLayout,
 
     children: [guestRoute, authenticatedRoute],
   },

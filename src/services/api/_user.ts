@@ -1,9 +1,10 @@
 import { User } from '~types/model';
 
-import { accessStorage, generateAvatar } from './_data';
-import { CreateUserParams, SignInParams } from './_user.type';
+import { accessSession, accessStorage, generateAvatar } from './_data';
+import { CreateUserParams, SignInParams, VerifyAuthReturn } from './_user.type';
 
 const usersStorage = accessStorage<User>('users');
+const userSession = accessSession<User>('user');
 
 const QUERY_TIME = 500;
 
@@ -26,7 +27,38 @@ export async function signIn({ userId, password }: SignInParams): Promise<User> 
         return;
       }
 
+      userSession.set(user);
+
       resolve(user);
+    }, QUERY_TIME);
+  });
+}
+
+export async function verifyAuth(): Promise<VerifyAuthReturn> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const user = userSession.get();
+      if (!user) {
+        resolve({
+          isAuth: false,
+        });
+        return;
+      }
+
+      resolve({
+        isAuth: true,
+        user,
+      });
+    }, QUERY_TIME);
+  });
+}
+
+export async function signOut(): Promise<true> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      userSession.set(null);
+
+      resolve(true);
     }, QUERY_TIME);
   });
 }

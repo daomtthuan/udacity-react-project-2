@@ -1,3 +1,4 @@
-import authConfig from '~plugins/auth/_config';
+import AuthLayout from './layout';
+import AuthProvider from './provider';
 
-export default authConfig;
+export { AuthLayout, AuthProvider };

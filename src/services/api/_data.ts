@@ -15,11 +15,30 @@ export function accessStorage<T>(key: string) {
         throw new Error(`Storage ${storageKey} Storage must be initialized before using.`);
       }
 
-      return JSON.parse(dataJSON) as Record<string, T>;
+      return JSON.parse(dataJSON);
     },
 
     set: (data: Record<string, T>) => {
       window.localStorage.setItem(storageKey, JSON.stringify(data));
+    },
+  };
+}
+
+export function accessSession<T>(key: string) {
+  const sessionKey = `ThuanDMT-${key}`;
+
+  return {
+    get: (): T | null => {
+      const dataJSON = window.sessionStorage.getItem(sessionKey);
+      if (!dataJSON) {
+        return null;
+      }
+
+      return JSON.parse(dataJSON);
+    },
+
+    set: (data: T | null) => {
+      window.sessionStorage.setItem(sessionKey, JSON.stringify(data));
     },
   };
 }
