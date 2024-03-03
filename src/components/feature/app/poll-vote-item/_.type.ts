@@ -1,9 +1,9 @@
 import { MouseEventHandler, PropsWithChildren } from 'react';
 
-import classNames from 'classnames';
+import { PropsWithClassName } from '~types/component/ui.type';
 
-export type PollVoteItemProps = PropsWithChildren<{
-  className?: classNames.Argument;
-
-  onVote: MouseEventHandler<HTMLButtonElement>;
-}>;
+export type PollVoteItemProps = PropsWithChildren<
+  PropsWithClassName<{
+    onVote: MouseEventHandler<HTMLButtonElement>;
+  }>
+>;

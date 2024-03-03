@@ -112,7 +112,7 @@ export default function QuestionsPage() {
     })();
   });
 
-  if (!pollProps) {
+  if (!authUser || !pollProps) {
     return null;
   }
 

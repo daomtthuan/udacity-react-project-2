@@ -1,7 +1,7 @@
 import PollCreate from '~components/feature/app/poll-create';
 import { useAppSelector } from '~plugins/store';
 
-export default function NewPage() {
+export default function AddPage() {
   const authUser = useAppSelector((state) => state.auth.user);
 
   if (!authUser) {

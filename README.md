@@ -43,21 +43,31 @@ For answered polls, each of the two options contains the following:
 
 The option selected by the logged-in user should be clearly marked.
 
-Since we want to make sure our application creates a good user experience, the application should show a 404 page if the user is trying to access a poll that does not exist. (Please keep in mind that newly created polls will not be accessible at their url because of the way the backend is set up in this application.) It should also display a navigation bar so that the user can easily navigate anywhere in the application.
+- The application will show a 404 page if the user is trying to access a poll that does not exist.
+- The application also displays a navigation bar so that the user can easily navigate anywhere in the application.
 
-So what happens when someone votes in a poll? Upon voting in a poll, all of the information of an answered poll should be displayed. The user’s response should be recorded and clearly visible on the poll details page. Users can only vote once per poll; they shouldn’t be allowed to change their answer after they’ve voted -- no cheating allowed! When the user comes back to the home page, the polling question should appear in the “Answered” column.
+So what happens when someone votes in a poll?
 
-It would be no fun to vote in polls if we couldn’t post our own questions! The form for posting new polling questions should be available at the /add route. The application should show the text “Would You Rather” and have a form for creating two options. Upon submitting the form, a new poll should be created, the user should be taken to the home page, and the new polling question should appear in the correct category on the home page.
+- Upon voting in a poll, all of the information of an answered poll should be displayed.
+- The user’s response should be recorded and clearly visible on the poll details page.
+- Users can only vote once per poll; they shouldn’t be allowed to change their answer after they’ve voted.
+- When the user comes back to the home page, the polling question should appear in the "Answered" column.
 
-But how can we know how many questions each user has asked and answered? Let’s get some healthy competition going here! The application should have a leaderboard that’s available at the /leaderboard route. Each entry on the leaderboard should contain the following:
+User can post our own questions
 
-User’s name;
-User’s picture;
-Number of questions the user asked; and
-Number of questions the user answered
-Users should be ordered in descending order based on the sum of the number of questions they’ve asked and the number of questions they’ve answered. The more questions you ask and answer, the higher up you move.
+- The form for posting new polling questions should be available at the `/add` route.
+- The application should show the text “Would You Rather” and have a form for creating two options.
+- Upon submitting the form, a new poll should be created, the user should be taken to the home page, and the new polling question should appear in the correct category on the home page.
 
-The user should be able to navigate to the leaderboard, to a specific question, and to the form that allows the user to create a new poll both from within the app and by typing in the address into the address bar. To make sure we’re showing the data that is relevant to the user, the application should require the user to be signed in order to access those pages.
+But how can we know how many questions each user has asked and answered? Let’s get some healthy competition going here!
+The application should have a leaderboard that’s available at the `/leaderboard` route. Each entry on the leaderboard should contain the following:
+
+- User’s name;
+- User’s picture;
+- Number of questions the user asked; and
+- Number of questions the user answered
+
+Users are ordered in descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
 
 ## Result obtained
 
@@ -68,7 +78,12 @@ I took the React course and did some research on my own. And these are what I di
 - I have separated the code and components into small modules for easy maintenance.
 - Beside that, I also use additional libraries to make the project better (you can see it in package.json file)
 - Specially, about the Mock server, **the application only works with client side with mock server api base file `_DATA.js` consisted by "starter code".**. When refreshing browser. the last data will be lost.
-  So, I decided to separate and refactor this code for using LocalStorage of browser for storing data of Mock server in `~/src/services/api`.
+  So, I decided to separate and refactor this code for using `LocalStorage` of browser for storing data of Mock server in `~/src/services/api`.
+- Beside that, I wrote more code for logic API to support this project work well. Such as: using `SessionStorage` to cache signed-in session of current user,...
+- I used `React Hook Form` library for working form. React Hook Form reduces unnecessary re-renders when working with form.
+- I use `ReduxJS` (with `ReduxJS toolkit`) to store global state. Specifically here is storing authenticated users.
+- Beside that, I wrote basic Authenticate flow logic and put in `~/src/plugins/auth` to manage authentication of this application.
+- I improved and do more small features in this project. Because, I think it will be nice to have.
 
 ## Setup and Start
 

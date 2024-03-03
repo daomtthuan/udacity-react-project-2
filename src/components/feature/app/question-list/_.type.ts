@@ -1,6 +1,7 @@
-import { Question } from '~types/model';
+import { QuestionItemData, QuestionItemProps } from '~components/feature/app/question-item';
 
 export type QuestionListProps = {
   title: string;
-  questions: Question[];
+  items: QuestionItemData[];
+  buttonText: QuestionItemProps['buttonText'];
 };

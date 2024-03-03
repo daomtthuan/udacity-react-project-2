@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
+import { QuestionItemData } from '~components/feature/app/question-item';
 import QuestionList from '~components/feature/app/question-list';
 import { useEffectOnce } from '~hooks/effect';
 import useLoading from '~hooks/loading';
 import { useAppSelector } from '~plugins/store';
 import { questionApi, userApi } from '~services/api';
-import { Question } from '~types/model';
+import { Question, User } from '~types/model';
 import { getErrorMessage } from '~utils/error';
 
 export default function DashboardPage() {
@@ -13,8 +14,24 @@ export default function DashboardPage() {
 
   const authUser = useAppSelector((state) => state.auth.user);
 
-  const [newQuestions, setNewQuestions] = useState<Question[]>([]);
-  const [doneQuestions, setDoneQuestions] = useState<Question[]>([]);
+  const [unAnsweredQuestions, setUnAnsweredQuestions] = useState<QuestionItemData[] | null>(null);
+  const [answeredQuestions, setAnsweredQuestions] = useState<QuestionItemData[] | null>(null);
+
+  const mapAuthor = useCallback<(questions: Question[], users: Record<string, User>) => QuestionItemData[]>((questions, users) => {
+    return questions
+      .map<QuestionItemData>((question) => {
+        const authorUser = users[question.author];
+        if (!authorUser) {
+          throw new Error(`User with id '${question.author}' not found`);
+        }
+
+        return {
+          ...question,
+          authorUser,
+        };
+      })
+      .sort((question1, question2) => question2.timestamp - question1.timestamp);
+  }, []);
 
   useEffectOnce(() => {
     if (!authUser) {
@@ -25,17 +42,19 @@ export default function DashboardPage() {
       try {
         loading.show();
 
-        const [user, questions] = await Promise.all([userApi.getUser(authUser.id), questionApi.getQuestions()]);
+        const [user, questions, users] = await Promise.all([userApi.getUser(authUser.id), questionApi.getQuestions(), userApi.getUsers()]);
 
-        setNewQuestions(() =>
-          Object.values(questions)
-            .filter((question) => !Object.keys(user.answers).includes(question.id))
-            .sort((question1, question2) => question2.timestamp - question1.timestamp),
+        setUnAnsweredQuestions(() =>
+          mapAuthor(
+            Object.values(questions).filter((question) => !Object.keys(user.answers).includes(question.id)),
+            users,
+          ),
         );
-        setDoneQuestions(() =>
-          Object.values(questions)
-            .filter((question) => Object.keys(user.answers).includes(question.id))
-            .sort((question1, question2) => question2.timestamp - question1.timestamp),
+        setAnsweredQuestions(() =>
+          mapAuthor(
+            Object.values(questions).filter((question) => Object.keys(user.answers).includes(question.id)),
+            users,
+          ),
         );
       } catch (error) {
         alert(getErrorMessage(error));
@@ -45,14 +64,14 @@ export default function DashboardPage() {
     })();
   });
 
-  if (!authUser) {
+  if (!authUser || !unAnsweredQuestions || !answeredQuestions) {
     return null;
   }
 
   return (
     <div className="container d-flex flex-column gap-5 py-5">
-      <QuestionList title="New Questions" questions={newQuestions} />
-      <QuestionList title="Done" questions={doneQuestions} />
+      <QuestionList title="Unanswered" items={unAnsweredQuestions} buttonText="Answer" />
+      <QuestionList title="Answered" items={answeredQuestions} buttonText="Result" />
     </div>
   );
 }

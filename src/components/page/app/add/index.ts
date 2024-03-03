@@ -1,7 +1,7 @@
 import { RouteObject } from 'react-router-dom';
 
-import NewPage from './_.view';
+import AddPage from './_.view';
 
 export default {
-  Component: NewPage,
+  Component: AddPage,
 } satisfies RouteObject;

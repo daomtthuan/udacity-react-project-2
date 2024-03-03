@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-import classNames from 'classnames';
+import { PropsWithClassName } from '~types/component/ui.type';
 
 export type OptionResult = {
   percentage: number;
@@ -8,9 +8,10 @@ export type OptionResult = {
 };
 
 export type PollViewItemProps = PropsWithChildren<
-  {
-    rather: boolean;
-    voted: boolean;
-    className?: classNames.Argument;
-  } & OptionResult
+  PropsWithClassName<
+    {
+      rather: boolean;
+      voted: boolean;
+    } & OptionResult
+  >
 >;

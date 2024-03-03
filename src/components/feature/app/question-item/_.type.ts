@@ -1,7 +1,11 @@
-import classNames from 'classnames';
-import { Question } from '~types/model';
+import { PropsWithClassName } from '~types/component/ui.type';
+import { Question, User } from '~types/model';
 
-export type QuestionItemProps = {
-  data: Question;
-  className?: classNames.Argument;
+export type QuestionItemData = Question & {
+  authorUser: User;
 };
+
+export type QuestionItemProps = PropsWithClassName<{
+  question: QuestionItemData;
+  buttonText: string;
+}>;
