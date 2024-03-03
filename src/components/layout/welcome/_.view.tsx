@@ -8,9 +8,7 @@ export default function WelcomeLayout() {
     <div className={classNames(styles.container, 'd-flex flex-column mx-auto p-4')}>
       <h1 className="text-primary text-center mb-0">Employee Polls</h1>
 
-      <div className={styles.banner}>
-        <img className="img-fluid" src="/images/background/banner.jpg" alt="banner" />
-      </div>
+      <img className="img-fluid" src="/images/background/banner.jpg" alt="banner" />
 
       <div className="bg-light border rounded shadow-sm py-3 px-4">
         <Outlet />

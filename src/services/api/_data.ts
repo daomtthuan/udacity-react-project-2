@@ -12,7 +12,7 @@ export function accessStorage<T>(key: string) {
     get: (): Record<string, T> => {
       const dataJSON = window.localStorage.getItem(storageKey);
       if (!dataJSON) {
-        throw new Error(`Storage ${storageKey} Storage must be initialized before using.`);
+        throw new Error(`Storage with key '${storageKey}' Storage must be initialized before using.`);
       }
 
       return JSON.parse(dataJSON);

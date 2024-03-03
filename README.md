@@ -14,15 +14,20 @@ In your app, users will be able to answer polls, see which polls they haven’t 
 
 ### Functionality
 
+Authentication flow:
+
 - The person using your application should have a way of impersonating/logging in as an existing user.
 - Application has account creation process to allow a user to sign up for an account.
 - Application works correctly regardless of which user is selected. Once the user logs in, the home page should be shown.
 - Information about the logged in user should appear on the page.
 - If someone tries to navigate anywhere by entering the address in the address bar, the user is asked to sign in and then the requested page is shown. The application allows the user to log out and log back in.
 
-- Once the user logs in, the user should be able to toggle between his/her answered and unanswered polls on the home page, which is located at the root. The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom). The unanswered polls should be shown by default, and the name of the logged in user should be visible on the page.
+Employee polls:
 
-- Each polling question should link to the details of that poll. The details of each poll should be available at `questions/:question_id`.
+- Once the user logs in, the user should be able to toggle between his/her answered and unanswered polls on the home page, which is located at the root.
+- The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom).
+- The unanswered polls should be shown by default, and the name of the logged in user should be visible on the page.
+- Each polling question should link to the details of that poll. The details of each poll should be available at `questions/:questionId`.
 
 When a poll is clicked on the home page, the following is shown:
 

@@ -1,4 +1,4 @@
-import { Question } from '~types/model';
+import { Answer } from '~types/model';
 
 export type CreateQuestionParams = {
   author: string;
@@ -7,7 +7,7 @@ export type CreateQuestionParams = {
 };
 
 export type CreateQuestionAnswerParams = {
-  authedUser: string;
+  userId: string;
   questionId: string;
-  answer: keyof Pick<Question, 'optionOne' | 'optionTwo'>;
+  answer: Answer;
 };

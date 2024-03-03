@@ -11,10 +11,10 @@ const pathConfig = {
 export default function AuthLayout() {
   const location: Location<string | null> = useLocation();
 
-  const user = useAppSelector((state) => state.auth.user);
+  const authUser = useAppSelector((state) => state.auth.user);
 
   // Not authenticated
-  if (!user) {
+  if (!authUser) {
     // Location is not guest routes
     if (!pathConfig.guest.includes(location.pathname)) {
       return <Navigate to={pathConfig.signIn} state={location.pathname} />;

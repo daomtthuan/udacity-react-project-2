@@ -8,7 +8,7 @@ import { authSliceActions } from '~plugins/store/auth';
 import { userApi } from '~services/api';
 import { getErrorMessage } from '~utils/error';
 
-export default function AuthProvider({ children }: AuthProviderProps) {
+export default function AuthProvider({ children }: Readonly<AuthProviderProps>) {
   const dispatch = useAppDispatch();
 
   const loading = useLoading();

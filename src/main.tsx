@@ -15,7 +15,7 @@ api.init();
 
 const rootEl = document.querySelector('main');
 if (!rootEl) {
-  throw new Error('Root app not found');
+  throw new Error(`Root app with query selector 'main' not found`);
 }
 
 const root = createRoot(rootEl);

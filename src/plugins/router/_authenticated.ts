@@ -17,6 +17,10 @@ const authenticatedRoute: RouteObject = {
       path: '/new',
       lazy: async () => (await import('~components/page/app/new')).default,
     },
+    {
+      path: '/questions/:questionId',
+      lazy: async () => (await import('~components/page/app/questions')).default,
+    },
   ],
 };
 

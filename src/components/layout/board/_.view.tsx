@@ -17,7 +17,7 @@ export default function BoardLayout() {
 
   const loading = useLoading();
 
-  const user = useAppSelector((state) => state.auth.user);
+  const authUser = useAppSelector((state) => state.auth.user);
 
   const onClickSignOut = useCallback<MouseEventHandler<HTMLAnchorElement>>(async () => {
     try {
@@ -77,15 +77,15 @@ export default function BoardLayout() {
               <li className="nav-item d-md-none">
                 <hr className="border-light m-0" />
               </li>
-              {user && (
-                <li className="nav-item dropdown">
+              {authUser && (
+                <li className="nav-item dropdown" data-bs-theme="light">
                   <span
                     className="nav-link dropdown-toggle d-flex align-items-center justify-content-end gap-1"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <img src={user.avatarURL} className={styles.avatar} alt="avatar" />
-                    <span className="fw-medium mt-1 ms-1">{user.name}</span>
+                    <img src={authUser.avatarURL} className={styles.avatar} alt="avatar" />
+                    <span className="fw-medium mt-1 ms-1">{authUser.name}</span>
                   </span>
                   <ul className="dropdown-menu text-end">
                     <li>
