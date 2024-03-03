@@ -18,7 +18,7 @@ export async function signIn({ userId, password }: SignInParams): Promise<User> 
       const users = usersStorage.get();
       const user = users[userId];
       if (!user) {
-        reject(new Error('User not found'));
+        reject(new Error(`User with id '${userId}' not found`));
         return;
       }
 
@@ -35,7 +35,7 @@ export async function signIn({ userId, password }: SignInParams): Promise<User> 
 }
 
 export async function verifyAuth(): Promise<VerifyAuthReturn> {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       const userId = userSession.get();
       if (!userId) {
@@ -47,6 +47,11 @@ export async function verifyAuth(): Promise<VerifyAuthReturn> {
 
       const users = usersStorage.get();
       const user = users[userId];
+      if (!user) {
+        reject(new Error(`User with id '${userId}' not found`));
+        return;
+      }
+
       resolve({
         isAuth: true,
         user,
@@ -81,7 +86,7 @@ export async function getUser(userId: string): Promise<User> {
       const users = usersStorage.get();
       const user = users[userId];
       if (!user) {
-        reject(new Error('User not found'));
+        reject(new Error(`User with id '${userId}' not found`));
         return;
       }
 
