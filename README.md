@@ -15,7 +15,7 @@ In your app, users will be able to answer polls, see which polls they haven’t 
 ### Functionality
 
 - The person using your application should have a way of impersonating/logging in as an existing user.
-- You create account creation process to allow a user to sign up for an account.
+- Application has account creation process to allow a user to sign up for an account.
 - Application works correctly regardless of which user is selected. Once the user logs in, the home page should be shown.
 - Information about the logged in user should appear on the page.
 - If someone tries to navigate anywhere by entering the address in the address bar, the user is asked to sign in and then the requested page is shown. The application allows the user to log out and log back in.

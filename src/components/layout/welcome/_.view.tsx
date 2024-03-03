@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import styles from './_.module.scss';
 
-export default function DefaultLayout() {
+export default function WelcomeLayout() {
   return (
     <div className={classNames(styles.container, 'd-flex flex-column mx-auto p-4')}>
       <h1 className="text-primary text-center mb-0">Employee Polls</h1>

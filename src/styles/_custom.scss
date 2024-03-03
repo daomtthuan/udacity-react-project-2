@@ -1,5 +1,11 @@
-.nav-link.active {
-  font-weight: $font-weight-semibold;
+.nav-link {
+  &.active {
+    font-weight: $font-weight-semibold;
+  }
+
+  &:not(.disabled):hover {
+    cursor: pointer;
+  }
 }
 
 .fs-7 {

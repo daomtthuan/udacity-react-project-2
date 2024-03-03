@@ -1,21 +1,34 @@
-import { RouterProvider } from 'react-router-dom';
-import { useEffectOnce } from '~hooks/effect';
-import useLoading from '~hooks/loading';
-import { authenticatedRouter, guestRouter } from '~plugins/router';
+import { Location, Navigate, Outlet, useLocation } from 'react-router-dom';
+import authConfig from '~plugins/auth';
 import { useAppSelector } from '~plugins/store';
 
 export default function AuthContainer() {
-  const loading = useLoading();
+  const location: Location<string | null> = useLocation();
 
   const user = useAppSelector((state) => state.auth.user);
 
-  useEffectOnce(() => {
-    loading.hide();
-  });
+  // Not authenticated
+  if (!user) {
+    // Location is not guest routes
+    if (!authConfig.guestPaths.includes(location.pathname)) {
+      return <Navigate to={authConfig.signIn} state={location.pathname} />;
+    }
 
-  if (user) {
-    return <RouterProvider router={authenticatedRouter} />;
+    return <Outlet />;
   }
 
-  return <RouterProvider router={guestRouter} />;
+  // Authenticated
+  else {
+    // Location has state
+    if (location.state) {
+      return <Navigate to={location.state} state={null} />;
+    }
+
+    // Location is guest routes
+    if (authConfig.guestPaths.includes(location.pathname)) {
+      return <Navigate to={authConfig.home} state={null} />;
+    }
+
+    return <Outlet />;
+  }
 }

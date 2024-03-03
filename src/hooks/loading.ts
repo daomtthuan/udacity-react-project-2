@@ -1,6 +1,6 @@
 import { useMemo, useRef } from 'react';
 
-const DELAY_ANIMATION = 1000;
+const DELAY_ANIMATION = 500;
 
 export default function useLoading() {
   const elementRef = useRef<HTMLDivElement>(document.querySelector('#loading'));

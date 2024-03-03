@@ -1,4 +1,15 @@
-import authenticatedRouter from './_authenticated';
-import guestRouter from './_guest';
+import { createBrowserRouter } from 'react-router-dom';
+import AuthContainer from '~components/container/auth';
 
-export { authenticatedRouter, guestRouter };
+import authenticatedRoute from './_authenticated';
+import guestRoute from './_guest';
+
+const router = createBrowserRouter([
+  {
+    Component: AuthContainer,
+
+    children: [guestRoute, authenticatedRoute],
+  },
+]);
+
+export default router;

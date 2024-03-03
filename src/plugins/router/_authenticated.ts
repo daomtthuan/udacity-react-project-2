@@ -1,20 +1,23 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { RouteObject } from 'react-router-dom';
 
-const authenticatedRouter = createBrowserRouter([
-  {
-    lazy: async () => (await import('~components/layout/welcome')).default,
+const authenticatedRoute: RouteObject = {
+  lazy: async () => (await import('~components/layout/board')).default,
 
-    children: [
-      {
-        index: true,
-        lazy: async () => (await import('~components/page/welcome/sign-in')).default,
-      },
-      {
-        path: '/sign-up',
-        lazy: async () => (await import('~components/page/welcome/sign-up')).default,
-      },
-    ],
-  },
-]);
+  children: [
+    {
+      index: true,
+      path: '/home',
+      lazy: async () => (await import('~components/page/app/dashboard')).default,
+    },
+    {
+      path: '/leaderboard',
+      lazy: async () => (await import('~components/page/app/leaderboard')).default,
+    },
+    {
+      path: '/new',
+      lazy: async () => (await import('~components/page/app/new')).default,
+    },
+  ],
+};
 
-export default authenticatedRouter;
+export default authenticatedRoute;
