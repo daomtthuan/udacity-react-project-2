@@ -1,4 +1,4 @@
-import QuestionItem from '~components/feature/app/question-item';
+import QuestionItem from '~components/feature/employee-polls/question-item';
 
 import { QuestionListProps } from './_.type';
 

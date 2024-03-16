@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly QuestionItem should render as expected 1`] = `
+<body>
+  <div>
+    <div
+      class="card shadow-sm h-100"
+    >
+      <div
+        class="card-body text-center"
+      >
+        <div
+          class="card-title"
+        >
+          <span
+            class="fs-7 text-secondary"
+          >
+            Poll by
+          </span>
+          <h5>
+            Tyler McGinnis
+          </h5>
+        </div>
+        <p
+          class="card-text text-secondary"
+        >
+          6:42:47 PM - 12/24/2016
+        </p>
+      </div>
+      <div
+        class="card-footer"
+      >
+        <a
+          class="btn btn-outline-primary w-100"
+          href="/questions/loxhs1bqm25b708cmbf3g"
+        >
+          Answer
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Renders correctly QuestionItem should render as expected 2`] = `
+<body>
+  <div>
+    <div
+      class="card shadow-sm h-100"
+    >
+      <div
+        class="card-body text-center"
+      >
+        <div
+          class="card-title"
+        >
+          <span
+            class="fs-7 text-secondary"
+          >
+            Poll by
+          </span>
+          <h5>
+            Thuan Dao
+          </h5>
+        </div>
+        <p
+          class="card-text text-secondary"
+        >
+          1:53:33 AM - 3/4/2024
+        </p>
+      </div>
+      <div
+        class="card-footer"
+      >
+        <a
+          class="btn btn-outline-primary w-100"
+          href="/questions/a0xo5jhg6y7tj2hwt3t6k"
+        >
+          Result
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+`;

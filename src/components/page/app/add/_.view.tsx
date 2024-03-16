@@ -1,4 +1,4 @@
-import PollCreate from '~components/feature/app/poll-create';
+import PollCreate from '~components/feature/employee-polls/poll-create';
 import { useAppSelector } from '~plugins/store';
 
 export default function AddPage() {

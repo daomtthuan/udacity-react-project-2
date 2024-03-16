@@ -1,7 +1,7 @@
 import { Question, User } from '~types/model';
 
-import { accessStorage, generateUID } from './_data';
 import { CreateQuestionAnswerParams, CreateQuestionParams } from './_question.type';
+import { accessStorage, generateUID } from './_utils';
 
 const usersStorage = accessStorage<User>('users');
 const questionsStorage = accessStorage<Question>('questions');

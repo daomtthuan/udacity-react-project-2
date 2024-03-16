@@ -1,7 +1,7 @@
 import { User } from '~types/model';
 
-import { accessSession, accessStorage, generateAvatar } from './_data';
 import { CreateUserParams, SignInParams, VerifyAuthReturn } from './_user.type';
+import { accessSession, accessStorage, generateAvatar } from './_utils';
 
 const usersStorage = accessStorage<User>('users');
 const userSession = accessSession<string>('user');

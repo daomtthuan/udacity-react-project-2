@@ -1,4 +1,7 @@
-import { QuestionItemData, QuestionItemProps } from '~components/feature/app/question-item';
+import {
+  QuestionItemData,
+  QuestionItemProps,
+} from '~components/feature/employee-polls/question-item';
 
 export type QuestionListProps = {
   title: string;

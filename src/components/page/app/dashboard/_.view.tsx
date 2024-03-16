@@ -1,12 +1,23 @@
-import { useCallback, useState } from 'react';
+import {
+  useCallback,
+  useState,
+} from 'react';
 
-import { QuestionItemData } from '~components/feature/app/question-item';
-import QuestionList from '~components/feature/app/question-list';
+import {
+  QuestionItemData,
+} from '~components/feature/employee-polls/question-item';
+import QuestionList from '~components/feature/employee-polls/question-list';
 import { useEffectOnce } from '~hooks/effect';
 import useLoading from '~hooks/loading';
 import { useAppSelector } from '~plugins/store';
-import { questionApi, userApi } from '~services/api';
-import { Question, User } from '~types/model';
+import {
+  questionApi,
+  userApi,
+} from '~services/api';
+import {
+  Question,
+  User,
+} from '~types/model';
 import { getErrorMessage } from '~utils/error';
 
 export default function DashboardPage() {

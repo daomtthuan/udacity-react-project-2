@@ -1,5 +1,5 @@
-import { OptionResult } from '~components/feature/app/poll-view-item';
-import { PollVoteItemProps } from '~components/feature/app/poll-vote-item';
+import { OptionResult } from '~components/feature/employee-polls/poll-view-item';
+import { PollVoteItemProps } from '~components/feature/employee-polls/poll-vote-item';
 import { Answer, Question, User } from '~types/model';
 
 export type PollVoteProps = {

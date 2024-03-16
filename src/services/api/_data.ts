@@ -1,56 +1,128 @@
-export function accessStorage<T>(key: string) {
-  const storageKey = `ThuanDMT-${key}`;
+import { Question, User } from '~types/model';
 
-  return {
-    init: (data: Record<string, T>) => {
-      const dataJSON = window.localStorage.getItem(storageKey);
-      if (!dataJSON) {
-        window.localStorage.setItem(storageKey, JSON.stringify(data));
-      }
+import { accessStorage } from './_utils';
+
+const usersStorage = accessStorage<User>('users');
+const questionsStorage = accessStorage<Question>('questions');
+
+export default function initData() {
+  usersStorage.init({
+    sarahedo: {
+      id: 'sarahedo',
+      password: 'password123',
+      name: 'Sarah Edo',
+      avatarURL: '/images/avatar/1.png',
+      answers: {
+        '8xf0y6ziyjabvozdd253nd': 'optionOne',
+        '6ni6ok3ym7mf1p33lnez': 'optionOne',
+        'am8ehyc8byjqgar0jgpub9': 'optionTwo',
+        'loxhs1bqm25b708cmbf3g': 'optionTwo',
+      },
+      questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9'],
     },
-
-    get: (): Record<string, T> => {
-      const dataJSON = window.localStorage.getItem(storageKey);
-      if (!dataJSON) {
-        throw new Error(`Storage with key '${storageKey}' Storage must be initialized before using.`);
-      }
-
-      return JSON.parse(dataJSON);
+    tylermcginnis: {
+      id: 'tylermcginnis',
+      password: 'abc321',
+      name: 'Tyler McGinnis',
+      avatarURL: '/images/avatar/2.png',
+      answers: {
+        vthrdm985a262al8qx3do: 'optionOne',
+        xj352vofupe1dqz9emx13r: 'optionTwo',
+      },
+      questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
     },
-
-    set: (data: Record<string, T>) => {
-      window.localStorage.setItem(storageKey, JSON.stringify(data));
+    mtsamis: {
+      id: 'mtsamis',
+      password: 'xyz123',
+      name: 'Mike Tsamis',
+      avatarURL: '/images/avatar/3.png',
+      answers: {
+        'xj352vofupe1dqz9emx13r': 'optionOne',
+        'vthrdm985a262al8qx3do': 'optionTwo',
+        '6ni6ok3ym7mf1p33lnez': 'optionOne',
+      },
+      questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
     },
-  };
-}
+  });
 
-export function accessSession<T>(key: string) {
-  const sessionKey = `ThuanDMT-${key}`;
-
-  return {
-    get: (): T | null => {
-      const dataJSON = window.sessionStorage.getItem(sessionKey);
-      if (!dataJSON) {
-        return null;
-      }
-
-      return JSON.parse(dataJSON);
+  questionsStorage.init({
+    '8xf0y6ziyjabvozdd253nd': {
+      id: '8xf0y6ziyjabvozdd253nd',
+      author: 'sarahedo',
+      timestamp: 1467166872634,
+      optionOne: {
+        votes: ['sarahedo'],
+        text: 'Build our new application with Javascript',
+      },
+      optionTwo: {
+        votes: [],
+        text: 'Build our new application with Typescript',
+      },
     },
-
-    set: (data: T | null) => {
-      window.sessionStorage.setItem(sessionKey, JSON.stringify(data));
+    '6ni6ok3ym7mf1p33lnez': {
+      id: '6ni6ok3ym7mf1p33lnez',
+      author: 'mtsamis',
+      timestamp: 1468479767190,
+      optionOne: {
+        votes: [],
+        text: 'hire more frontend developers',
+      },
+      optionTwo: {
+        votes: ['mtsamis', 'sarahedo'],
+        text: 'hire more backend developers',
+      },
     },
-  };
-}
-
-export function generateUID(): string {
-  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-}
-
-export function generateAvatar(): string {
-  const min = 1;
-  const max = 18;
-  const randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
-
-  return `/images/avatar/${randomNumber}.png`;
+    'am8ehyc8byjqgar0jgpub9': {
+      id: 'am8ehyc8byjqgar0jgpub9',
+      author: 'sarahedo',
+      timestamp: 1488579767190,
+      optionOne: {
+        votes: [],
+        text: 'conduct a release retrospective 1 week after a release',
+      },
+      optionTwo: {
+        votes: ['sarahedo'],
+        text: 'conduct release retrospectives quarterly',
+      },
+    },
+    'loxhs1bqm25b708cmbf3g': {
+      id: 'loxhs1bqm25b708cmbf3g',
+      author: 'tylermcginnis',
+      timestamp: 1482579767190,
+      optionOne: {
+        votes: [],
+        text: 'have code reviews conducted by peers',
+      },
+      optionTwo: {
+        votes: ['sarahedo'],
+        text: 'have code reviews conducted by managers',
+      },
+    },
+    'vthrdm985a262al8qx3do': {
+      id: 'vthrdm985a262al8qx3do',
+      author: 'tylermcginnis',
+      timestamp: 1489579767190,
+      optionOne: {
+        votes: ['tylermcginnis'],
+        text: 'take a course on ReactJS',
+      },
+      optionTwo: {
+        votes: ['mtsamis'],
+        text: 'take a course on unit testing with Jest',
+      },
+    },
+    'xj352vofupe1dqz9emx13r': {
+      id: 'xj352vofupe1dqz9emx13r',
+      author: 'mtsamis',
+      timestamp: 1493579767190,
+      optionOne: {
+        votes: ['mtsamis'],
+        text: 'deploy to production once every two weeks',
+      },
+      optionTwo: {
+        votes: ['tylermcginnis'],
+        text: 'deploy to production once every month',
+      },
+    },
+  });
 }

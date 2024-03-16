@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
-import PollList, { UserItemData } from '~components/feature/app/poll-list';
+import PollList, {
+  UserItemData,
+} from '~components/feature/employee-polls/poll-list';
 import { useEffectOnce } from '~hooks/effect';
 import useLoading from '~hooks/loading';
 import { useAppSelector } from '~plugins/store';

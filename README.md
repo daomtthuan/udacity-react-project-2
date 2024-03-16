@@ -84,6 +84,7 @@ I took the React course and did some research on my own. And these are what I di
 - I use `ReduxJS` (with `ReduxJS toolkit`) to store global state. Specifically here is storing authenticated users.
 - Beside that, I wrote basic Authenticate flow logic and put in `~/src/plugins/auth` to manage authentication of this application.
 - I improved and do more small features in this project. Because, I think it will be nice to have.
+- I setup `Jest` for unit test. I write UT for core components of this application and UT for Mockup API. I put all UT files in `~/test` folder.
 
 ## Setup and Start
 
@@ -144,4 +145,16 @@ npm run lint
 
 # or with Yarn
 yarn lint
+```
+
+### 5. Run unit test (optional)
+
+Run this script add root project (same level to package.json)
+
+```bash
+# with NPM
+npm run test
+
+# or with Yarn
+yarn test
 ```

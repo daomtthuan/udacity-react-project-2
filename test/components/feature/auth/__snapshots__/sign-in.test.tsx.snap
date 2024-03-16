@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly AuthSignIn should render as expected 1`] = `
+<body>
+  <div>
+    <form>
+      <div
+        class="my-3"
+      >
+        <label
+          class="form-label"
+          for="input-user"
+        >
+          User
+        </label>
+        <input
+          autocomplete="username"
+          class="form-control"
+          id="input-user"
+          name="userId"
+          type="text"
+        />
+      </div>
+      <div
+        class="my-3"
+      >
+        <label
+          class="form-label"
+          for="input-password"
+        >
+          Password
+        </label>
+        <input
+          autocomplete="current-password"
+          class="form-control"
+          id="input-password"
+          name="password"
+          type="password"
+        />
+      </div>
+      <div
+        class="mt-3 mb-2 d-flex align-items-center justify-content-end gap-2"
+      >
+        <a
+          class="btn btn-outline-primary"
+          href="/sign-up"
+        >
+          Sign Up
+        </a>
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+`;

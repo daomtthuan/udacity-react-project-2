@@ -38,9 +38,10 @@
       "~services/*": ["./src/services/*"],
       "~styles/*": ["./src/styles/*"],
       "~types/*": ["./src/types/*"],
-      "~utils/*": ["./src/utils/*"]
+      "~utils/*": ["./src/utils/*"],
+      "~test/*": ["./test/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "test"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

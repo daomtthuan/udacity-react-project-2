@@ -1,6 +1,6 @@
 module.exports = {
-  roots: ['<rootDir>/src'],
-  modulePaths: ['<rootDir>/src'],
+  roots: ['.'],
+  modulePaths: ['<rootDir>/src', '<rootDir>/test'],
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   transform: {
@@ -36,6 +36,7 @@ module.exports = {
     '~styles/(.*)': '<rootDir>/src/styles/$1',
     '~types/(.*)': '<rootDir>/src/types/$1',
     '~utils/(.*)': '<rootDir>/src/utils/$1',
+    '~test/(.*)': '<rootDir>/test/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/test/setup.ts'],
   moduleFileExtensions: ['tsx', 'ts', 'jsx', 'js', 'json'],
