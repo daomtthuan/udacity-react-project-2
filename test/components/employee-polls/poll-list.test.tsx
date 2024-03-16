@@ -1,5 +1,7 @@
-import PollList, { PollListProps } from '~components/feature/employee-polls/poll-list';
-import { TestContainer } from '~test/mocks/container';
+import PollList, {
+  PollListProps,
+} from '~components/feature/employee-polls/poll-list';
+import { TestContainer } from '~test/__mocks__/container';
 
 import { render } from '@testing-library/react';
 
@@ -69,12 +71,12 @@ describe('PollList renders correctly', () => {
       ],
     },
   ])('PollList render as expected with props %o', (props) => {
-    const component = render(
+    const {baseElement} = render(
       <TestContainer>
         <PollList {...props} />
       </TestContainer>,
     );
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

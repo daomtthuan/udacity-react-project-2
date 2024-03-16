@@ -1,5 +1,5 @@
 import PollViewItem, { PollViewItemProps } from '~components/feature/employee-polls/poll-view-item';
-import { TestContainer } from '~test/mocks/container';
+import { TestContainer } from '~test/__mocks__/container';
 
 import { render } from '@testing-library/react';
 
@@ -41,12 +41,12 @@ describe('PollViewItem renders correctly', () => {
       children: 'Build our new application with Typescript',
     },
   ])('PollViewItem render as expected with props %o', (props) => {
-    const component = render(
+    const { baseElement } = render(
       <TestContainer>
         <PollViewItem {...props} />
       </TestContainer>,
     );
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

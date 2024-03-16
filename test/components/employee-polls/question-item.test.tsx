@@ -1,5 +1,7 @@
-import QuestionItem, { QuestionItemProps } from '~components/feature/employee-polls/question-item';
-import { TestContainer } from '~test/mocks/container';
+import QuestionItem, {
+  QuestionItemProps,
+} from '~components/feature/employee-polls/question-item';
+import { TestContainer } from '~test/__mocks__/container';
 
 import { render } from '@testing-library/react';
 
@@ -67,12 +69,12 @@ describe('QuestionItem renders correctly', () => {
       buttonText: 'Result',
     },
   ])('QuestionItem render as expected with props %o', (props) => {
-    const component = render(
+    const {baseElement} = render(
       <TestContainer>
         <QuestionItem {...props} />
       </TestContainer>,
     );
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

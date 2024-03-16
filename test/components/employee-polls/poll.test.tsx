@@ -1,5 +1,5 @@
 import Poll, { PollProps } from '~components/feature/employee-polls/poll';
-import { TestContainer } from '~test/mocks/container';
+import { TestContainer } from '~test/__mocks__/container';
 
 import { render } from '@testing-library/react';
 
@@ -70,12 +70,12 @@ describe('Poll renders correctly', () => {
       answer: 'optionTwo',
     },
   ])('Poll render as expected with props %o', (props) => {
-    const component = render(
+    const { baseElement } = render(
       <TestContainer>
         <Poll {...props} />
       </TestContainer>,
     );
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

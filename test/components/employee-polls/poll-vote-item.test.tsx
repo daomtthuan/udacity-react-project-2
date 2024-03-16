@@ -1,5 +1,5 @@
 import PollVoteItem, { PollVoteItemProps } from '~components/feature/employee-polls/poll-vote-item';
-import { TestContainer } from '~test/mocks/container';
+import { TestContainer } from '~test/__mocks__/container';
 
 import { render } from '@testing-library/react';
 
@@ -17,12 +17,12 @@ describe('PollVoteItem renders correctly', () => {
       onVote: () => {},
     },
   ])('PollVoteItem render as expected with props %o', (props) => {
-    const component = render(
+    const { baseElement } = render(
       <TestContainer>
         <PollVoteItem {...props} />
       </TestContainer>,
     );
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

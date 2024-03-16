@@ -1,5 +1,5 @@
 import QuestionList, { QuestionListProps } from '~components/feature/employee-polls/question-list';
-import { TestContainer } from '~test/mocks/container';
+import { TestContainer } from '~test/__mocks__/container';
 
 import { render } from '@testing-library/react';
 
@@ -148,12 +148,12 @@ describe('QuestionList renders correctly', () => {
       buttonText: 'Result',
     },
   ])('QuestionList render as expected with props %o', (props) => {
-    const component = render(
+    const { baseElement } = render(
       <TestContainer>
         <QuestionList {...props} />
       </TestContainer>,
     );
 
-    expect(component.baseElement).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });
