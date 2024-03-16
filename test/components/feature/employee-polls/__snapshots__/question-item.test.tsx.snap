@@ -1,48 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders correctly QuestionItem should render as expected 1`] = `
-<body>
-  <div>
-    <div
-      class="card shadow-sm h-100"
-    >
-      <div
-        class="card-body text-center"
-      >
-        <div
-          class="card-title"
-        >
-          <span
-            class="fs-7 text-secondary"
-          >
-            Poll by
-          </span>
-          <h5>
-            Tyler McGinnis
-          </h5>
-        </div>
-        <p
-          class="card-text text-secondary"
-        >
-          6:42:47 PM - 12/24/2016
-        </p>
-      </div>
-      <div
-        class="card-footer"
-      >
-        <a
-          class="btn btn-outline-primary w-100"
-          href="/questions/loxhs1bqm25b708cmbf3g"
-        >
-          Answer
-        </a>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`Renders correctly QuestionItem should render as expected 2`] = `
+exports[`QuestionItem renders correctly QuestionItem render as expected with props {
+  className: 'h-100',
+  question: {
+    id: 'a0xo5jhg6y7tj2hwt3t6k',
+    timestamp: 1709492013513,
+    author: 'thuandmt',
+    optionOne: { votes: [ [length]: 0 ], text: 'Helllo' },
+    optionTwo: { votes: [ 'thuandmt', [length]: 1 ], text: 'AAA' },
+    authorUser: {
+      id: 'thuandmt',
+      password: '123',
+      name: 'Thuan Dao',
+      avatarURL: '/images/avatar/7.png',
+      answers: {
+        xj352vofupe1dqz9emx13r: 'optionOne',
+        vthrdm985a262al8qx3do: 'optionTwo',
+        am8ehyc8byjqgar0jgpub9: 'optionOne',
+        '6ni6ok3ym7mf1p33lnez': 'optionTwo',
+        '8xf0y6ziyjabvozdd253nd': 'optionOne',
+        a0xo5jhg6y7tj2hwt3t6k: 'optionTwo'
+      },
+      questions: [ [length]: 0 ]
+    }
+  },
+  buttonText: 'Result'
+} 1`] = `
 <body>
   <div>
     <div
@@ -77,6 +60,75 @@ exports[`Renders correctly QuestionItem should render as expected 2`] = `
           href="/questions/a0xo5jhg6y7tj2hwt3t6k"
         >
           Result
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`QuestionItem renders correctly QuestionItem render as expected with props {
+  className: 'h-100',
+  question: {
+    id: 'loxhs1bqm25b708cmbf3g',
+    author: 'tylermcginnis',
+    timestamp: 1482579767190,
+    optionOne: {
+      votes: [ [length]: 0 ],
+      text: 'have code reviews conducted by peers'
+    },
+    optionTwo: {
+      votes: [ 'sarahedo', [length]: 1 ],
+      text: 'have code reviews conducted by managers'
+    },
+    authorUser: {
+      id: 'tylermcginnis',
+      password: 'abc321',
+      name: 'Tyler McGinnis',
+      avatarURL: '/images/avatar/2.png',
+      answers: {
+        vthrdm985a262al8qx3do: 'optionOne',
+        xj352vofupe1dqz9emx13r: 'optionTwo'
+      },
+      questions: [ 'loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do', [length]: 2 ]
+    }
+  },
+  buttonText: 'Answer'
+} 1`] = `
+<body>
+  <div>
+    <div
+      class="card shadow-sm h-100"
+    >
+      <div
+        class="card-body text-center"
+      >
+        <div
+          class="card-title"
+        >
+          <span
+            class="fs-7 text-secondary"
+          >
+            Poll by
+          </span>
+          <h5>
+            Tyler McGinnis
+          </h5>
+        </div>
+        <p
+          class="card-text text-secondary"
+        >
+          6:42:47 PM - 12/24/2016
+        </p>
+      </div>
+      <div
+        class="card-footer"
+      >
+        <a
+          class="btn btn-outline-primary w-100"
+          href="/questions/loxhs1bqm25b708cmbf3g"
+        >
+          Answer
         </a>
       </div>
     </div>

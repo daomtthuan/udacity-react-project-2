@@ -1,116 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders correctly Poll should render as expected 1`] = `
-<body>
-  <div>
-    <div
-      class="d-flex flex-column align-items-center gap-4 p-4 border rounded shadow-sm"
-    >
-      <h2
-        class="text-primary"
-      >
-        Poll by 
-        Tyler McGinnis
-      </h2>
-      <img
-        alt="avatar-tylermcginnis"
-        src="/images/avatar/2.png"
-      />
-      <h3>
-        Would You Rather?
-      </h3>
-      <div
-        class="row row-cols-1 row-cols-md-2 g-3 w-100"
-      >
-        <div
-          class="col"
-        >
-          <div
-            class="card shadow-sm h-100"
-          >
-            <div
-              class="card-body text-center"
-            >
-              <p
-                class="card-text"
-              >
-                have code reviews conducted by peers
-              </p>
-            </div>
-            <div
-              class="card-footer"
-            >
-              <button
-                class="btn btn-outline-primary w-100"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="svg-inline--fa fa-thumbs-up "
-                  data-icon="thumbs-up"
-                  data-prefix="fas"
-                  focusable="false"
-                  role="img"
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"
-                    fill="currentColor"
-                  />
-                </svg>
-                 Vote
-              </button>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col"
-        >
-          <div
-            class="card shadow-sm h-100"
-          >
-            <div
-              class="card-body text-center"
-            >
-              <p
-                class="card-text"
-              >
-                have code reviews conducted by managers
-              </p>
-            </div>
-            <div
-              class="card-footer"
-            >
-              <button
-                class="btn btn-outline-primary w-100"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="svg-inline--fa fa-thumbs-up "
-                  data-icon="thumbs-up"
-                  data-prefix="fas"
-                  focusable="false"
-                  role="img"
-                  viewBox="0 0 512 512"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"
-                    fill="currentColor"
-                  />
-                </svg>
-                 Vote
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`Renders correctly Poll should render as expected 2`] = `
+exports[`Poll renders correctly Poll render as expected with props {
+  type: 'view',
+  question: {
+    id: 'a0xo5jhg6y7tj2hwt3t6k',
+    timestamp: 1709492013513,
+    author: 'thuandmt',
+    optionOne: { votes: [ [length]: 0 ], text: 'Helllo' },
+    optionTwo: { votes: [ 'thuandmt', [length]: 1 ], text: 'AAA' }
+  },
+  authorUser: {
+    id: 'thuandmt',
+    password: '123',
+    name: 'Thuan Dao',
+    avatarURL: '/images/avatar/7.png',
+    answers: {
+      xj352vofupe1dqz9emx13r: 'optionOne',
+      vthrdm985a262al8qx3do: 'optionTwo',
+      am8ehyc8byjqgar0jgpub9: 'optionOne',
+      '6ni6ok3ym7mf1p33lnez': 'optionTwo',
+      '8xf0y6ziyjabvozdd253nd': 'optionOne',
+      a0xo5jhg6y7tj2hwt3t6k: 'optionTwo'
+    },
+    questions: [ [length]: 0 ]
+  },
+  userCount: 4,
+  answer: 'optionTwo'
+} 1`] = `
 <body>
   <div>
     <div
@@ -234,6 +150,144 @@ exports[`Renders correctly Poll should render as expected 2`] = `
               >
                  - You voted this
               </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Poll renders correctly Poll render as expected with props {
+  type: 'vote',
+  question: {
+    id: 'loxhs1bqm25b708cmbf3g',
+    author: 'tylermcginnis',
+    timestamp: 1482579767190,
+    optionOne: {
+      votes: [ [length]: 0 ],
+      text: 'have code reviews conducted by peers'
+    },
+    optionTwo: {
+      votes: [ 'sarahedo', [length]: 1 ],
+      text: 'have code reviews conducted by managers'
+    }
+  },
+  authorUser: {
+    id: 'tylermcginnis',
+    password: 'abc321',
+    name: 'Tyler McGinnis',
+    avatarURL: '/images/avatar/2.png',
+    answers: {
+      vthrdm985a262al8qx3do: 'optionOne',
+      xj352vofupe1dqz9emx13r: 'optionTwo'
+    },
+    questions: [ 'loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do', [length]: 2 ]
+  },
+  onVoteOptionOne: [Function: onVoteOptionOne] { [length]: 0, [name]: 'onVoteOptionOne' },
+  onVoteOptionTwo: [Function: onVoteOptionTwo] { [length]: 0, [name]: 'onVoteOptionTwo' }
+} 1`] = `
+<body>
+  <div>
+    <div
+      class="d-flex flex-column align-items-center gap-4 p-4 border rounded shadow-sm"
+    >
+      <h2
+        class="text-primary"
+      >
+        Poll by 
+        Tyler McGinnis
+      </h2>
+      <img
+        alt="avatar-tylermcginnis"
+        src="/images/avatar/2.png"
+      />
+      <h3>
+        Would You Rather?
+      </h3>
+      <div
+        class="row row-cols-1 row-cols-md-2 g-3 w-100"
+      >
+        <div
+          class="col"
+        >
+          <div
+            class="card shadow-sm h-100"
+          >
+            <div
+              class="card-body text-center"
+            >
+              <p
+                class="card-text"
+              >
+                have code reviews conducted by peers
+              </p>
+            </div>
+            <div
+              class="card-footer"
+            >
+              <button
+                class="btn btn-outline-primary w-100"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-thumbs-up "
+                  data-icon="thumbs-up"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"
+                    fill="currentColor"
+                  />
+                </svg>
+                 Vote
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col"
+        >
+          <div
+            class="card shadow-sm h-100"
+          >
+            <div
+              class="card-body text-center"
+            >
+              <p
+                class="card-text"
+              >
+                have code reviews conducted by managers
+              </p>
+            </div>
+            <div
+              class="card-footer"
+            >
+              <button
+                class="btn btn-outline-primary w-100"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-thumbs-up "
+                  data-icon="thumbs-up"
+                  data-prefix="fas"
+                  focusable="false"
+                  role="img"
+                  viewBox="0 0 512 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"
+                    fill="currentColor"
+                  />
+                </svg>
+                 Vote
+              </button>
             </div>
           </div>
         </div>

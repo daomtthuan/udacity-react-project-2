@@ -3,26 +3,22 @@ import { TestContainer } from '~test/mocks/container';
 
 import { render } from '@testing-library/react';
 
-const testCases: PollCreateProps[] = [
-  {
-    userId: 'thuandmt',
-  },
+describe('PollCreate renders correctly', () => {
+  test.each<PollCreateProps>([
+    {
+      userId: 'thuandmt',
+    },
 
-  {
-    userId: 'tylermcginnis',
-  },
-];
+    {
+      userId: 'tylermcginnis',
+    },
+  ])('PollCreate render as expected with props %o', (props) => {
+    const component = render(
+      <TestContainer>
+        <PollCreate {...props} />
+      </TestContainer>,
+    );
 
-describe('Renders correctly', () => {
-  testCases.map((props) => {
-    test(`${PollCreate.name} should render as expected`, () => {
-      const component = render(
-        <TestContainer>
-          <PollCreate {...props} />
-        </TestContainer>,
-      );
-
-      expect(component.baseElement).toMatchSnapshot();
-    });
+    expect(component.baseElement).toMatchSnapshot();
   });
 });

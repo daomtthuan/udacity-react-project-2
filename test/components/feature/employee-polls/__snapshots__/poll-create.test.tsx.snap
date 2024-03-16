@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders correctly PollCreate should render as expected 1`] = `
+exports[`PollCreate renders correctly PollCreate render as expected with props { userId: 'thuandmt' } 1`] = `
 <body>
   <div>
     <form>
@@ -53,7 +53,7 @@ exports[`Renders correctly PollCreate should render as expected 1`] = `
 </body>
 `;
 
-exports[`Renders correctly PollCreate should render as expected 2`] = `
+exports[`PollCreate renders correctly PollCreate render as expected with props { userId: 'tylermcginnis' } 1`] = `
 <body>
   <div>
     <form>

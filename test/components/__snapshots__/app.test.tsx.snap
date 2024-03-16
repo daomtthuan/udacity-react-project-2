@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders correctly App should render as expected 1`] = `
+exports[`App renders correctly App render as expected 1`] = `
 <body>
   <div />
 </body>

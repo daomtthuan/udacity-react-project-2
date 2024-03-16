@@ -3,8 +3,8 @@ import { TestContainer } from '~test/mocks/container';
 
 import { render } from '@testing-library/react';
 
-describe('Renders correctly', () => {
-  test(`${AuthSignUp.name} should render as expected`, () => {
+describe('AuthSignUp renders correctly', () => {
+  test('AuthSignUp render as expected', () => {
     const component = render(
       <TestContainer>
         <AuthSignUp />

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Renders correctly AuthSignUp should render as expected 1`] = `
+exports[`AuthSignUp renders correctly AuthSignUp render as expected 1`] = `
 <body>
   <div>
     <form>

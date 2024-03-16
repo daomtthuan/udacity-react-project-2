@@ -65,7 +65,7 @@ export async function createQuestion({ optionOneText, optionTwoText, author }: C
   });
 }
 
-export function createQuestionAnswer({ userId, questionId, answer }: CreateQuestionAnswerParams): Promise<Question> {
+export async function createQuestionAnswer({ userId, questionId, answer }: CreateQuestionAnswerParams): Promise<Question> {
   if (!userId || !questionId || !answer) {
     throw new Error('Please provide authedUser, questionId, and answer');
   }
@@ -98,7 +98,7 @@ export function createQuestionAnswer({ userId, questionId, answer }: CreateQuest
         },
       });
 
-      const updatedQuestion = {
+      const updatedQuestion: Question = {
         ...question,
         [answer]: {
           ...question[answer],

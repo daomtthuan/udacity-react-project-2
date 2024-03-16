@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`questionApi.getQuestion work correctly Question get as expected 1`] = `
+{
+  "author": "sarahedo",
+  "id": "8xf0y6ziyjabvozdd253nd",
+  "optionOne": {
+    "text": "Build our new application with Javascript",
+    "votes": [
+      "sarahedo",
+    ],
+  },
+  "optionTwo": {
+    "text": "Build our new application with Typescript",
+    "votes": [],
+  },
+  "timestamp": 1467166872634,
+}
+`;
+
+exports[`questionApi.getQuestions work correctly Questions get as expected 1`] = `
+{
+  "6ni6ok3ym7mf1p33lnez": {
+    "author": "mtsamis",
+    "id": "6ni6ok3ym7mf1p33lnez",
+    "optionOne": {
+      "text": "hire more frontend developers",
+      "votes": [],
+    },
+    "optionTwo": {
+      "text": "hire more backend developers",
+      "votes": [
+        "mtsamis",
+        "sarahedo",
+      ],
+    },
+    "timestamp": 1468479767190,
+  },
+  "8xf0y6ziyjabvozdd253nd": {
+    "author": "sarahedo",
+    "id": "8xf0y6ziyjabvozdd253nd",
+    "optionOne": {
+      "text": "Build our new application with Javascript",
+      "votes": [
+        "sarahedo",
+      ],
+    },
+    "optionTwo": {
+      "text": "Build our new application with Typescript",
+      "votes": [],
+    },
+    "timestamp": 1467166872634,
+  },
+  "am8ehyc8byjqgar0jgpub9": {
+    "author": "sarahedo",
+    "id": "am8ehyc8byjqgar0jgpub9",
+    "optionOne": {
+      "text": "conduct a release retrospective 1 week after a release",
+      "votes": [],
+    },
+    "optionTwo": {
+      "text": "conduct release retrospectives quarterly",
+      "votes": [
+        "sarahedo",
+      ],
+    },
+    "timestamp": 1488579767190,
+  },
+  "loxhs1bqm25b708cmbf3g": {
+    "author": "tylermcginnis",
+    "id": "loxhs1bqm25b708cmbf3g",
+    "optionOne": {
+      "text": "have code reviews conducted by peers",
+      "votes": [],
+    },
+    "optionTwo": {
+      "text": "have code reviews conducted by managers",
+      "votes": [
+        "sarahedo",
+      ],
+    },
+    "timestamp": 1482579767190,
+  },
+  "vthrdm985a262al8qx3do": {
+    "author": "tylermcginnis",
+    "id": "vthrdm985a262al8qx3do",
+    "optionOne": {
+      "text": "take a course on ReactJS",
+      "votes": [
+        "tylermcginnis",
+      ],
+    },
+    "optionTwo": {
+      "text": "take a course on unit testing with Jest",
+      "votes": [
+        "mtsamis",
+      ],
+    },
+    "timestamp": 1489579767190,
+  },
+  "xj352vofupe1dqz9emx13r": {
+    "author": "mtsamis",
+    "id": "xj352vofupe1dqz9emx13r",
+    "optionOne": {
+      "text": "deploy to production once every two weeks",
+      "votes": [
+        "mtsamis",
+      ],
+    },
+    "optionTwo": {
+      "text": "deploy to production once every month",
+      "votes": [
+        "tylermcginnis",
+      ],
+    },
+    "timestamp": 1493579767190,
+  },
+}
+`;
