@@ -4,10 +4,7 @@ import PollViewItem from '~components/feature/employee-polls/poll-view-item';
 import PollVoteItem from '~components/feature/employee-polls/poll-vote-item';
 
 import styles from './_.module.scss';
-import {
-  PollProps,
-  PollResult,
-} from './_.type';
+import { PollProps, PollResult } from './_.type';
 
 export default function Poll({ question, authorUser, ...props }: Readonly<PollProps>) {
   const pollResult = useMemo<PollResult | null>(() => {

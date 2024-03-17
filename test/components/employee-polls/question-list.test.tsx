@@ -6,6 +6,8 @@ import { render } from '@testing-library/react';
 describe('QuestionList renders correctly', () => {
   test.each<QuestionListProps>([
     {
+      parentId: 'parent',
+      id: 'unanswered',
       title: 'Unanswered',
       items: [
         {
@@ -62,9 +64,12 @@ describe('QuestionList renders correctly', () => {
         },
       ],
       buttonText: 'Answer',
+      show: true,
     },
 
     {
+      parentId: 'parent',
+      id: 'answered',
       title: 'Answered',
       items: [
         {

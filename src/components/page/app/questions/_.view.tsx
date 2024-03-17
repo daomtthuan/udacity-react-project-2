@@ -1,29 +1,15 @@
-import {
-  useCallback,
-  useState,
-} from 'react';
+import { useCallback, useState } from 'react';
 
-import {
-  useNavigate,
-  useParams,
-} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Poll, { PollProps } from '~components/feature/employee-polls/poll';
-import {
-  PollVoteItemProps,
-} from '~components/feature/employee-polls/poll-vote-item';
+import { PollVoteItemProps } from '~components/feature/employee-polls/poll-vote-item';
 import { useEffectOnce } from '~hooks/effect';
 import useLoading from '~hooks/loading';
 import { useAppSelector } from '~plugins/store';
-import {
-  questionApi,
-  userApi,
-} from '~services/api';
+import { questionApi, userApi } from '~services/api';
 import { getErrorMessage } from '~utils/error';
 
-import {
-  QuestionsPageParams,
-  VoteOptionParams,
-} from './_.type';
+import { QuestionsPageParams, VoteOptionParams } from './_.type';
 
 export default function QuestionsPage() {
   const { questionId } = useParams<QuestionsPageParams>();
